@@ -1,3 +1,5 @@
+import sys
+
 print(r'''
 *******************************************************************************
           |                   |                  |                     |
@@ -22,3 +24,30 @@ ____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
 ''')
 print("Welcome to Treasure Island.")
 print("Your mission is to find the treasure.")
+
+first_action = input("Do you want to go to the left, or to the right?")
+if first_action.lower() != "left":
+    print("You fall into a hole. Game Over")
+    sys.exit()
+
+print("You've chosen the correct path.")
+second_action = input("Now do you want to swim, or wait?")
+if second_action.lower() != "wait":
+    print("You are attacked by trout. Game Over")
+    sys.exit()
+
+print("Your action was correct.")
+color_of_door = input("Now you have to choose which door you want to enter: red, yellow or blue")
+if color_of_door.lower() == "red":
+    print("You were burned by fire. Game Over")
+    sys.exit()
+elif color_of_door.lower() == "blue":
+    print("You were eaten by beasts. Game over")
+    sys.exit()
+elif color_of_door.lower() == "yellow":
+    print("You win!")
+    sys.exit()
+else:
+    print("Game Over")
+    sys.exit()
+
