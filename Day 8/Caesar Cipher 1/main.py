@@ -4,6 +4,22 @@ direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower
 text = input("Type your message:\n").lower()
 shift = int(input("Type the shift number:\n"))
 
+def encrypt(original_text: str, shift_amount: int) -> str:
+    output = ""
+    for char in original_text:
+        ascii_value = ord(char)
+        new_ascii_value = ascii_value + shift_amount
+
+        if new_ascii_value > 122:
+            difference = new_ascii_value - 122
+            new_ascii_value = 96 + difference
+
+        output += chr(new_ascii_value)
+
+    return output
+
+print(encrypt(text, shift))
+
 
 # TODO-1: Create a function called 'encrypt()' that takes 'original_text' and 'shift_amount' as 2 inputs.
 
